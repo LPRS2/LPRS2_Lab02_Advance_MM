@@ -34,10 +34,10 @@ architecture nios2_custom_pio_arch of nios2_custom_pio is
 	
 	component nios2_custom_pio_qsys is
 		port (
-			i_clk_clk    : in  std_logic                    := 'X';             -- clk
-			i_sw_export  : in  std_logic_vector(7 downto 0) := (others => 'X'); -- export
-			o_led_export : out std_logic_vector(7 downto 0);                    -- export
-			i_rst_reset  : in  std_logic                    := 'X'              -- reset
+			clk_clk   : in  std_logic                    := 'X';             -- clk
+			pio_pi    : in  std_logic_vector(7 downto 0) := (others => 'X'); -- pi
+			pio_po    : out std_logic_vector(7 downto 0);                    -- po
+			rst_reset : in  std_logic                    := 'X'              -- reset
 		);
 	end component nios2_custom_pio_qsys;
 	
@@ -47,10 +47,10 @@ begin
 	
 	u0 : component nios2_custom_pio_qsys
 	port map (
-		i_clk_clk    => i_clk,
-		i_sw_export  => i_sw,
-		o_led_export => o_led,
-		i_rst_reset  => rst
+		clk_clk    => i_clk,
+		rst_reset  => rst,
+		pio_pi     => i_sw,
+		pio_po     => o_led
 	);
 
 end architecture;

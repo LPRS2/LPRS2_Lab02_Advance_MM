@@ -139,10 +139,10 @@ ACDS_VERSION := 18.0
 # Define path to the application ELF. 
 # It may be used by the makefile fragments so is defined before including them. 
 # 
-ELF := pio_playground_03_asm.elf
+ELF := custom_pio_02_stopwatch.elf
 
 # Paths to C, C++, and assembly source files.
-C_SRCS := pio_playground_03_asm.c
+C_SRCS := custom_pio_02_stopwatch.c
 CXX_SRCS :=
 ASM_SRCS :=
 

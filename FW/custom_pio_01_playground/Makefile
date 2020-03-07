@@ -139,10 +139,10 @@ ACDS_VERSION := 18.0
 # Define path to the application ELF. 
 # It may be used by the makefile fragments so is defined before including them. 
 # 
-ELF := pio_playground_02_ptr.elf
+ELF := custom_pio_01_playground.elf
 
 # Paths to C, C++, and assembly source files.
-C_SRCS := pio_playground_02_ptr.c
+C_SRCS := custom_pio_01_playground.c
 CXX_SRCS :=
 ASM_SRCS :=
 
@@ -162,7 +162,7 @@ CREATE_LINKER_MAP := 1
 # Common arguments for ALT_CFLAGSs
 APP_CFLAGS_DEFINED_SYMBOLS :=
 APP_CFLAGS_UNDEFINED_SYMBOLS :=
-APP_CFLAGS_OPTIMIZATION := -O0
+APP_CFLAGS_OPTIMIZATION := -Os
 APP_CFLAGS_DEBUG_LEVEL := -g
 APP_CFLAGS_WARNINGS := -Wall
 APP_CFLAGS_USER_FLAGS :=

@@ -11,7 +11,7 @@
 ###############################################################################
 
 import os
-import fnmatch
+from fnmatch import fnmatch
 import shutil
 import datetime
 
@@ -28,11 +28,13 @@ top = '.'
 def recursive_glob(pattern, directory = '.'):
 	for root, dirs, files in os.walk(directory, followlinks = True):
 		for f in files:
-			if fnmatch.fnmatch(f, pattern):
-				yield os.path.join(root, f)
+			rf = os.path.join(root, f)
+			if fnmatch(f, pattern) or fnmatch(rf, pattern):
+				yield rf
 		for d in dirs:
-			if fnmatch.fnmatch(d + '/', pattern):
-				yield os.path.join(root, d)
+			rd = os.path.join(root, d)
+			if fnmatch(d + '/', pattern) or fnmatch(rd, pattern):
+				yield rd
 
 def collect_git_ignored_files():
 	for gitignore in recursive_glob('.gitignore'):

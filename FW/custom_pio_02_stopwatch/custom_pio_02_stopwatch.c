@@ -8,9 +8,7 @@ void busy_wait(int ms){
 }
 
 int main() {
-/*
-	volatile uint32_t* sw = (volatile uint32_t*)SW_PIO_BASE;
-	volatile uint32_t* led = (volatile uint32_t*)LED_PIO_BASE;
+	volatile uint32_t* pio = (volatile uint32_t*)SW_AND_LED_PIO_BASE;
 
 	uint8_t reset;
 	uint8_t pause;
@@ -30,6 +28,6 @@ int main() {
 		// Write outputs.
 		//TODO
 	}
-*/
+
 	return 0;
 }

@@ -5,9 +5,8 @@
 #include <stdio.h>
 
 
-volatile uint32_t* pio = (volatile uint32_t*)SW_AND_LED_PIO_BASE;
-
 int main() {
+	volatile uint32_t* pio = (volatile uint32_t*)SW_AND_LED_PIO_BASE;
 
 	printf("sizeof(pio) = %d\n", sizeof(pio));
 	printf("sizeof(*pio) = %d\n", sizeof(*pio));

@@ -5,25 +5,28 @@
 #include <stdio.h>
 
 
+volatile uint32_t* pio = (volatile uint32_t*)SW_AND_LED_PIO_BASE;
+
 int main() {
 
-	register volatile uint32_t* sw = (volatile uint32_t*)SW_PIO_BASE;
-	register volatile uint32_t* led = (volatile uint32_t*)LED_PIO_BASE;
+	printf("sizeof(pio) = %d\n", sizeof(pio));
+	printf("sizeof(*pio) = %d\n", sizeof(*pio));
+	printf("pio = 0x%08x\n", pio);
+	printf("\n");
+
+	pio[0] = 1;
+	printf("pio[0] = %u (0x%08x)\n", pio[0], pio[0]);
+
+	pio[0] = 0;
+	printf("pio[0] = %u (0x%08x)\n", pio[0], pio[0]);
 
 
-	printf("sizeof(sw) = %d\n", sizeof(sw));
-	printf("sizeof(*sw) = %d\n", sizeof(*sw));
-	printf("sw = 0x%08x\n", sw);
+	for(int i = 0; i < 16; i++){
+		pio[i] = pio[i];
 
-	printf("*sw = %u (0x%08x)\n", *sw, *sw);
-
-	*sw = 0; // Read-only mem. mapped reg discard writing to it.
-	printf("*sw = %u (0x%08x)\n", *sw, *sw);
-
-	*led = *sw;
-	printf("*led = %u (0x%08x)\n", *led, *led);
-	*led = ~ *sw;
-	printf("*led = %u (0x%08x)\n", *led, *led);
+		//TODO Print all regs.
+		printf("pio[%d] = 0x%08x\n", i, pio[i]);
+	}
 
 	return 0;
 }

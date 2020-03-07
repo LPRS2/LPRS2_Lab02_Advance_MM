@@ -177,7 +177,7 @@ CRT0 :=
 SYS_LIB :=
 
 # Define path to the root of the BSP.
-BSP_ROOT_DIR := ../nios2_pio_bsp/
+BSP_ROOT_DIR := ../nios2_custom_pio_bsp/
 
 # List of application specific include directories, library directories and library names
 APP_INCLUDE_DIRS :=
@@ -1077,5 +1077,3 @@ $(OBJDUMP_NAME) : $(ELF)
 .PHONY: print-elf-name
 print-elf-name:
 	@$(ECHO) $(ELF)
-
-

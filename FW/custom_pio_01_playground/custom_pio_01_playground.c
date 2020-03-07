@@ -22,7 +22,7 @@ int main() {
 	printf("pio[0] = 0x%08x\n", pio[0]);
 	printf("\n");
 
-
+	//TODO Faster.
 	for(int i = 0; i < 8; i++){
 		pio[i] = pio[i];
 	}
@@ -35,15 +35,12 @@ int main() {
 	printf("pio[9] = 0x%08x\n", pio[9]);
 	printf("\n");
 
+
 	pio[11] = 0x10;
 
-/*
+
 	//TODO Print all regs.
-	for(int i = 0; i < 16; i++){
-		printf("pio[%d] = 0x%08x\n", i, pio[i]);
-	}
-	printf("\n");
-*/
+	//TODO All LEDs to 1's.
 
 	return 0;
 }

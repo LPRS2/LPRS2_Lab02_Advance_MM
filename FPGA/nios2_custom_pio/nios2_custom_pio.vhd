@@ -5,7 +5,7 @@ use ieee.std_logic_unsigned.all;
 
 library work;
 
-entity nios2_pio is
+entity nios2_custom_pio is
 	generic(
 		-- Default frequency used in synthesis.
 		constant CLK_FREQ : positive := 12000000
@@ -28,24 +28,24 @@ entity nios2_pio is
 	);
 end entity;
 
-architecture nios2_pio_arch of nios2_pio is
+architecture nios2_custom_pio_arch of nios2_custom_pio is
 	
 	signal rst : std_logic;
 	
-	component nios2_pio_qsys is
+	component nios2_custom_pio_qsys is
 		port (
 			i_clk_clk    : in  std_logic                    := 'X';             -- clk
 			i_sw_export  : in  std_logic_vector(7 downto 0) := (others => 'X'); -- export
 			o_led_export : out std_logic_vector(7 downto 0);                    -- export
 			i_rst_reset  : in  std_logic                    := 'X'              -- reset
 		);
-	end component nios2_pio_qsys;
+	end component nios2_custom_pio_qsys;
 	
 begin
 	
 	rst <= not in_rst;
 	
-	u0 : component nios2_pio_qsys
+	u0 : component nios2_custom_pio_qsys
 	port map (
 		i_clk_clk    => i_clk,
 		i_sw_export  => i_sw,

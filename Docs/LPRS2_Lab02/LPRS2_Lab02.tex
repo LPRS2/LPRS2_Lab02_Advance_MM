@@ -101,7 +101,7 @@
 		{#4};
 }
 \newcommand{\regInitLegend}[1]{%
-	\node[anchor=north east] at (32*\regWD, #1*\regHO+\regIVO) {Intial Value};
+	\node[anchor=north east] at (32*\regWD, #1*\regHO+\regIVO) {Inital Value};
 }
 \newcommand{\regInit}[4]{%
 	\node[anchor=north] at 
@@ -259,6 +259,7 @@ SW[7:0] регистар захтева volatile декоратор прилик
 	
 	\newcommand{\regUnpackSwLed}[3]{%
 		\regStd{#1}{#1 (0x#2/0xa0#2)}
+		\regBit{#1}{1}
 		\regField{#1}{31}{1}{-}
 		\regRW{#1}{31}{1}{R}
 		\regInit{#1}{31}{1}{0}

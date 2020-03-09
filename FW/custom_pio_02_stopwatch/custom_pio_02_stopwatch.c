@@ -10,23 +10,22 @@ void busy_wait(int ms){
 int main() {
 	volatile uint32_t* pio = (volatile uint32_t*)SW_AND_LED_PIO_BASE;
 
-	uint8_t reset;
-	uint8_t pause;
-	uint8_t speed;
-	const uint8_t moduo = 100;
+	uint8_t reset; // SW[0]
+	uint8_t pause; // SW[1]
+	uint8_t moduo; // SW[7:2]
 
 	uint8_t cnt;
 
 
 	while(1) { // Infinite loop.
 		// Read inputs.
-		//TODO
+		//TODO Прочитати SW у reset, pause, moduo.
 
 		// Calculate state.
-		//TODO
+		//TODO Срачунати стање cnt.
 
 		// Write outputs.
-		//TODO
+		//TODO Уписати резултат у LED.
 	}
 
 	return 0;
